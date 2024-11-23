@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Klinika_backend.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Klinika_backend.Data
 {
-    public class APP_DB_Context:DbContext
+    public class APP_DB_Context:IdentityDbContext<IdentityUser>
     {
         public APP_DB_Context(DbContextOptions<APP_DB_Context> options):base(options) { }
         protected override void OnModelCreating(ModelBuilder builder)

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using System.Linq;
 using System.Threading.Tasks;
+using Klinika_backend.Models;
 
 namespace Klinika_backend.Controllers
 {
@@ -30,47 +31,52 @@ namespace Klinika_backend.Controllers
         public async Task<IActionResult> Register([FromBody] RegisterRequestDto registerRequestDto)
         {
             // Proveri da li korisnik sa datim email-om već postoji
-            var existingUser = await userManager.FindByEmailAsync(registerRequestDto.Username);
+            var existingUser = await userManager.FindByEmailAsync(registerRequestDto.Email);
             if (existingUser != null)
             {
-                return BadRequest(new { Message = $"Email '{registerRequestDto.Username}' je već zauzet." });
+                return BadRequest(new { Message = $"Email '{registerRequestDto.Email}' je već zauzet." });
             }
 
-            var identityUser = new IdentityUser
+            var identityUser = new ApplicationUser
             {
-                UserName = registerRequestDto.Username,
-                Email = registerRequestDto.Username
+                UserName = registerRequestDto.Email,
+                Email = registerRequestDto.Email,
+                FirstName = registerRequestDto.FirstName,
+                LastName = registerRequestDto.LastName
             };
 
+            // Kreiraj korisnika sa lozinkom
             var identityResult = await userManager.CreateAsync(identityUser, registerRequestDto.Password);
-            if (identityResult.Succeeded)
+            if (!identityResult.Succeeded)
             {
-                if (registerRequestDto.Roles != null && registerRequestDto.Roles.Any())
-                {
-                    var roleResult = await userManager.AddToRolesAsync(identityUser, registerRequestDto.Roles);
-                    if (roleResult.Succeeded)
-                    {
-                        return Ok(new { Message = "Korisnik je registrovan! Molimo vas da se prijavite" });
-                    }
-                    else
-                    {
-                        return BadRequest(new { Message = "Neuspešno dodeljivanje uloga", Errors = roleResult.Errors });
-                    }
-                }
-                return Ok(new { Message = "Korisnik je registrovan bez uloga! Molimo vas da se prijavite" });
+                return BadRequest(new { Message = "Registracija korisnika nije uspela.", Errors = identityResult.Errors });
             }
-            else
+
+            // Proveri i dodeli uloge
+            if (registerRequestDto.Roles == null || !registerRequestDto.Roles.Any())
             {
-                return BadRequest(new { Message = "Registracija korisnika nije uspela", Errors = identityResult.Errors });
+                // Ako uloge nisu prosleđene, dodeli podrazumevanu ulogu "User"
+                registerRequestDto.Roles = ["User"] ;
             }
+
+            var roleResult = await userManager.AddToRolesAsync(identityUser, registerRequestDto.Roles);
+            if (!roleResult.Succeeded)
+            {
+                // Ako dodela uloga ne uspe, obriši korisnika kako bi se sprečila nekonzistencija
+                await userManager.DeleteAsync(identityUser);
+                return BadRequest(new { Message = "Greška prilikom dodele uloga.", Errors = roleResult.Errors });
+            }
+
+            return Ok(new { Message = "Korisnik je uspešno registrovan! Molimo vas da se prijavite." });
         }
+
 
         // POST api/auth/Login
         [HttpPost]
         [Route("Login")]
         public async Task<IActionResult> Login([FromBody] LoginRequestDto loginRequestDto)
         {
-            var user = await userManager.FindByEmailAsync(loginRequestDto.Username);
+            var user = await userManager.FindByEmailAsync(loginRequestDto.Email);
             if (user != null)
             {
                 var checkPasswordResult = await userManager.CheckPasswordAsync(user, loginRequestDto.Password);
@@ -93,64 +99,44 @@ namespace Klinika_backend.Controllers
             return BadRequest(new { Message = "Uneta email adresa ne postoji" });
         }
 
-        [HttpDelete]
-        [Route("DeleteReaders")]
-        [Authorize(Roles = "Writer")]
-        public async Task<IActionResult> DeleteReaders()
+        //[Authorize(Roles = "Admin")] // Samo admin može pristupiti
+        [HttpGet("GetUsers")] // Endpoint za prikaz korisnika
+        public async Task<IActionResult> GetUsers()
         {
-            // Nabavi sve korisnike
-            var users = userManager.Users.ToList();
-            var readers = new List<IdentityUser>();
-
-            foreach (var user in users)
+            var users = userManager.Users.Select(user => new
             {
-                var roles = await userManager.GetRolesAsync(user);
-                if (roles.Contains("Reader"))
-                {
-                    readers.Add(user);
-                }
-            }
+                user.Id,
+                user.UserName,
+                user.Email
+            }).ToList();
 
-            if (readers.Count == 0)
-            {
-                return NotFound(new { Message = "Nema korisnika sa rodom 'Reader'." });
-            }
-
-            foreach (var user in readers)
-            {
-                var identityResult = await userManager.DeleteAsync(user);
-                if (!identityResult.Succeeded)
-                {
-                    return BadRequest(new { Message = "Greška prilikom brisanja korisnika.", Errors = identityResult.Errors });
-                }
-            }
-
-            return Ok(new { Message = "Svi korisnici sa rodom 'Reader' su uspešno obrisani." });
+            return Ok(users);
         }
-        //[HttpDelete]
-        //[Route("DeleteUser")]
-        //[Authorize(Roles = "Writer")] // Obezbeđuje da samo admin može pristupiti ovoj metodi
-        //public async Task<IActionResult> DeleteUser([FromBody] CheckEmailRequest request)
-        //{
-        //    if (string.IsNullOrEmpty(request.Email))
-        //    {
-        //        return BadRequest(new { Message = "Email je obavezan." });
-        //    }
 
-        //    var user = await userManager.FindByEmailAsync(request.Email);
-        //    if (user == null)
-        //    {
-        //        return NotFound(new { Message = "Korisnik sa datim email-om ne postoji." });
-        //    }
 
-        //    var identityResult = await userManager.DeleteAsync(user);
-        //    if (!identityResult.Succeeded)
-        //    {
-        //        return BadRequest(new { Message = "Greška prilikom brisanja korisnika.", Errors = identityResult.Errors });
-        //    }
+        [HttpDelete("{id:guid}")]
+        [Authorize(Roles = "Admin")] // Obezbeđuje da samo admin može pristupiti ovoj metodi
+        public async Task<IActionResult> DeleteUser([FromRoute]Guid id)
+        {
+            var user = await userManager.FindByIdAsync(id.ToString());
+            if (user == null)
+            {
+                return NotFound(new { Message = "Korisnik sa datim ID-om ne postoji." });
+            }
 
-        //    return Ok(new { Message = "Korisnik je uspešno obrisan." });
-        //}
+            // Brisanje korisnika
+            var identityResult = await userManager.DeleteAsync(user);
+            if (!identityResult.Succeeded)
+            {
+                return BadRequest(new
+                {
+                    Message = "Greška prilikom brisanja korisnika.",
+                    Errors = identityResult.Errors
+                });
+            }
+
+            return Ok(new { Message = "Korisnik je uspešno obrisan." });
+        }
     }
 
 }

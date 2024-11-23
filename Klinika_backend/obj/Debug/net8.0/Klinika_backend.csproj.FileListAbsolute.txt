@@ -265,3 +265,4 @@ C:\Users\Nazim\Desktop\Džemil\GitHub\Softversko inzenjerstvo 1\Klinika_backend\
 C:\Users\Nazim\Desktop\Džemil\GitHub\Softversko inzenjerstvo 1\Klinika_backend\Klinika_backend\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
 C:\Users\Nazim\Desktop\Džemil\GitHub\Softversko inzenjerstvo 1\Klinika_backend\Klinika_backend\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Nazim\Desktop\Džemil\GitHub\Softversko inzenjerstvo 1\Klinika_backend\Klinika_backend\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Nazim\Desktop\Džemil\GitHub\Softversko inzenjerstvo 1\Klinika_backend\Klinika_backend\obj\Debug\net8.0\Klinika_backend.sourcelink.json

@@ -2,13 +2,11 @@
 
 namespace Klinika_backend.Models.DTO
 {
-    public class LoginRequestDto
+    public class CheckEmailRequest
     {
-        [Required]
+        [Required(ErrorMessage = "Email je obavezan")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [Required]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
+
     }
 }
