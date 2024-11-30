@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Klinika_backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5576a5ebae619534471855f3180dd6ec62b1e0f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba36debc0388b6319441eb396ac95106178e24de")]
 [assembly: System.Reflection.AssemblyProductAttribute("Klinika_backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Klinika_backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
