@@ -43,6 +43,6 @@ namespace Klinika_backend.Data
         }
 
         public DbSet<Klinika_backend.Models.Lekar> Lekar { get; set; } = default!;
-
+        public DbSet<Klinika_backend.Models.DTO.ReviewDto> Reviews { get; set; }
     }
 }

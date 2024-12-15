@@ -1,6 +1,5 @@
 ﻿using Klinika_backend.Models.DTO;
 using Klinika_backend.Repositories;
-using Klinika_backend.Models.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
