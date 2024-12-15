@@ -4,6 +4,7 @@ using Klinika_backend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Klinika_backend.Migrations
 {
     [DbContext(typeof(APP_DB_Context))]
-    partial class APP_DB_ContextModelSnapshot : ModelSnapshot
+    [Migration("20241215151248_usluge")]
+    partial class usluge
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +25,7 @@ namespace Klinika_backend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Klinika_backend.Models.DTO.AppointmentDto", b =>
+            modelBuilder.Entity("Klinika_backend.Models.DTO.Appointment", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -86,9 +89,6 @@ namespace Klinika_backend.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -401,7 +401,7 @@ namespace Klinika_backend.Migrations
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
-            modelBuilder.Entity("Klinika_backend.Models.DTO.AppointmentDto", b =>
+            modelBuilder.Entity("Klinika_backend.Models.DTO.Appointment", b =>
                 {
                     b.HasOne("Klinika_backend.Models.ApplicationUser", "Patient")
                         .WithMany()

@@ -2,6 +2,7 @@
 using Klinika_backend.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Klinika_backend.Models.DTO;
 
 namespace Klinika_backend.Data
 {
@@ -44,5 +45,8 @@ namespace Klinika_backend.Data
 
         public DbSet<Klinika_backend.Models.Lekar> Lekar { get; set; } = default!;
         public DbSet<Klinika_backend.Models.DTO.ReviewDto> Reviews { get; set; }
+        public DbSet<ServiceDto> Services { get; set; }
+        public DbSet<ServiceCategoryDto> ServiceCategories { get; set; }
+        public DbSet<AppointmentDto> Appointments { get; set; }
     }
 }

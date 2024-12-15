@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Softversko inzenjerstvo 1\\Klinika_backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A0E6BDC0-3672-4A56-A99A-4892C6E1C508}|Klinika_backend\\Klinika_backend.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\softversko inzenjerstvo 1\\klinika_backend\\klinika_backend\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0E6BDC0-3672-4A56-A99A-4892C6E1C508}|Klinika_backend\\Klinika_backend.csproj|solutionrelative:klinika_backend\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A0E6BDC0-3672-4A56-A99A-4892C6E1C508}|Klinika_backend\\Klinika_backend.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\softversko inzenjerstvo 1\\klinika_backend\\klinika_backend\\migrations\\20241215151248_usluge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E6BDC0-3672-4A56-A99A-4892C6E1C508}|Klinika_backend\\Klinika_backend.csproj|solutionrelative:klinika_backend\\migrations\\20241215151248_usluge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0E6BDC0-3672-4A56-A99A-4892C6E1C508}|Klinika_backend\\Klinika_backend.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\softversko inzenjerstvo 1\\klinika_backend\\klinika_backend\\migrations\\20241215151248_usluge.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E6BDC0-3672-4A56-A99A-4892C6E1C508}|Klinika_backend\\Klinika_backend.csproj|solutionrelative:klinika_backend\\migrations\\20241215151248_usluge.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,14 +27,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ReviewController.cs",
-              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Softversko inzenjerstvo 1\\Klinika_backend\\Klinika_backend\\Controllers\\ReviewController.cs",
-              "RelativeDocumentMoniker": "Klinika_backend\\Controllers\\ReviewController.cs",
-              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Softversko inzenjerstvo 1\\Klinika_backend\\Klinika_backend\\Controllers\\ReviewController.cs",
-              "RelativeToolTip": "Klinika_backend\\Controllers\\ReviewController.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAAwBMAAAAJAAAA",
+              "Title": "20241215151248_usluge.cs",
+              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Softversko inzenjerstvo 1\\Klinika_backend\\Klinika_backend\\Migrations\\20241215151248_usluge.cs",
+              "RelativeDocumentMoniker": "Klinika_backend\\Migrations\\20241215151248_usluge.cs",
+              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Softversko inzenjerstvo 1\\Klinika_backend\\Klinika_backend\\Migrations\\20241215151248_usluge.cs",
+              "RelativeToolTip": "Klinika_backend\\Migrations\\20241215151248_usluge.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T11:47:29.329Z",
+              "WhenOpened": "2024-12-15T15:33:24.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20241215151248_usluge.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Softversko inzenjerstvo 1\\Klinika_backend\\Klinika_backend\\Migrations\\20241215151248_usluge.Designer.cs",
+              "RelativeDocumentMoniker": "Klinika_backend\\Migrations\\20241215151248_usluge.Designer.cs",
+              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Softversko inzenjerstvo 1\\Klinika_backend\\Klinika_backend\\Migrations\\20241215151248_usluge.Designer.cs",
+              "RelativeToolTip": "Klinika_backend\\Migrations\\20241215151248_usluge.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T15:33:24.381Z",
               "EditorCaption": ""
             }
           ]
