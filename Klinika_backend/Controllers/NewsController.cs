@@ -3,6 +3,7 @@ using Klinika_backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Klinika_backend.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Klinika_backend.Controllers
 {
@@ -59,6 +60,7 @@ namespace Klinika_backend.Controllers
 
         // POST: api/News
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<NewsDto>> AddNews([FromBody] NewsDto newsDto)
         {
             var news = new News
@@ -85,6 +87,7 @@ namespace Klinika_backend.Controllers
 
         // PUT: api/News/5
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> UpdateNews(int id, [FromBody] NewsDto newsDto)
         {
             var news = await _context.News.FindAsync(id);
@@ -103,6 +106,7 @@ namespace Klinika_backend.Controllers
 
         // DELETE: api/News/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteNews(int id)
         {
             var news = await _context.News.FindAsync(id);

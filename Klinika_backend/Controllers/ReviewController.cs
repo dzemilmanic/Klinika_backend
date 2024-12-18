@@ -43,7 +43,7 @@ namespace Klinika_backend.Controllers
 
         // POST: api/Reviews
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> CreateReview([FromBody] ReviewDto reviewDto)
         {
             // Dohvati ime trenutnog korisnika iz tokena
@@ -71,7 +71,7 @@ namespace Klinika_backend.Controllers
 
         // PUT: api/Reviews/{id}
         [HttpPut("{id}")]
-        [Authorize]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> UpdateReview(Guid id, [FromBody] ReviewDto updatedReviewDto)
         {
             var review = await _context.Reviews.FindAsync(id);
@@ -100,7 +100,7 @@ namespace Klinika_backend.Controllers
 
         // DELETE: api/Reviews/{id}
         [HttpDelete("{id}")]
-        [Authorize]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> DeleteReview(Guid id)
         {
             var review = await _context.Reviews.FindAsync(id);

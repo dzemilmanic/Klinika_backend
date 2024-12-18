@@ -1,6 +1,7 @@
 ﻿using Klinika_backend.Data;
 using Klinika_backend.Models;
 using Klinika_backend.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,7 @@ namespace Klinika_backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "User")]
     public class AppointmentController : ControllerBase
     {
         private readonly APP_DB_Context _context;

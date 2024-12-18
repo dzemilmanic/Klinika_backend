@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Softversko inzenjerstvo 1\\Klinika_backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A0E6BDC0-3672-4A56-A99A-4892C6E1C508}|Klinika_backend\\Klinika_backend.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\softversko inzenjerstvo 1\\klinika_backend\\klinika_backend\\migrations\\20241218182400_new.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E6BDC0-3672-4A56-A99A-4892C6E1C508}|Klinika_backend\\Klinika_backend.csproj|solutionrelative:klinika_backend\\migrations\\20241218182400_new.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0E6BDC0-3672-4A56-A99A-4892C6E1C508}|Klinika_backend\\Klinika_backend.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\softversko inzenjerstvo 1\\klinika_backend\\klinika_backend\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E6BDC0-3672-4A56-A99A-4892C6E1C508}|Klinika_backend\\Klinika_backend.csproj|solutionrelative:klinika_backend\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A0E6BDC0-3672-4A56-A99A-4892C6E1C508}|Klinika_backend\\Klinika_backend.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\softversko inzenjerstvo 1\\klinika_backend\\klinika_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A0E6BDC0-3672-4A56-A99A-4892C6E1C508}|Klinika_backend\\Klinika_backend.csproj|solutionrelative:klinika_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0E6BDC0-3672-4A56-A99A-4892C6E1C508}|Klinika_backend\\Klinika_backend.csproj|c:\\users\\nazim\\desktop\\d\u017Eemil\\github\\softversko inzenjerstvo 1\\klinika_backend\\klinika_backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0E6BDC0-3672-4A56-A99A-4892C6E1C508}|Klinika_backend\\Klinika_backend.csproj|solutionrelative:klinika_backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,23 +26,70 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "20241218182400_new.cs",
+              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Softversko inzenjerstvo 1\\Klinika_backend\\Klinika_backend\\Migrations\\20241218182400_new.cs",
+              "RelativeDocumentMoniker": "Klinika_backend\\Migrations\\20241218182400_new.cs",
+              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Softversko inzenjerstvo 1\\Klinika_backend\\Klinika_backend\\Migrations\\20241218182400_new.cs",
+              "RelativeToolTip": "Klinika_backend\\Migrations\\20241218182400_new.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T18:24:00.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Softversko inzenjerstvo 1\\Klinika_backend\\Klinika_backend\\Program.cs",
               "RelativeDocumentMoniker": "Klinika_backend\\Program.cs",
               "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Softversko inzenjerstvo 1\\Klinika_backend\\Klinika_backend\\Program.cs",
               "RelativeToolTip": "Klinika_backend\\Program.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAADkAAAAfAAAA",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAuwGYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T16:59:15.487Z",
+              "WhenOpened": "2024-12-18T18:20:04.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Softversko inzenjerstvo 1\\Klinika_backend\\Klinika_backend\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Klinika_backend\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Softversko inzenjerstvo 1\\Klinika_backend\\Klinika_backend\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Klinika_backend\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAwEoAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T17:55:33.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NewsController.cs",
+              "DocumentMoniker": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Softversko inzenjerstvo 1\\Klinika_backend\\Klinika_backend\\Controllers\\NewsController.cs",
+              "RelativeDocumentMoniker": "Klinika_backend\\Controllers\\NewsController.cs",
+              "ToolTip": "C:\\Users\\Nazim\\Desktop\\D\u017Eemil\\GitHub\\Softversko inzenjerstvo 1\\Klinika_backend\\Klinika_backend\\Controllers\\NewsController.cs",
+              "RelativeToolTip": "Klinika_backend\\Controllers\\NewsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T17:55:07.947Z",
               "EditorCaption": ""
             }
           ]

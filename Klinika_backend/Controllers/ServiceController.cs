@@ -3,11 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Klinika_backend.Models.DTO;
 using Klinika_backend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Klinika_backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class ServiceController: ControllerBase
     {
         private readonly APP_DB_Context _context;
