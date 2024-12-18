@@ -7,7 +7,7 @@ namespace Klinika_backend.Models.DTO
         public Guid Id { get; set; }
 
         [Required]
-        public Guid ServiceId { get; set; }  
+        public Guid ServiceId { get; set; }
         public ServiceDto Service { get; set; }
 
         [Required]

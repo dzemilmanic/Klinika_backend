@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Klinika_backend.Models.DTO;
+using System.ComponentModel.DataAnnotations;
 
-namespace Klinika_backend.Models.DTO
+namespace Klinika_backend.Models
 {
-    public class ServiceDto
+    public class Service
     {
         public Guid Id { get; set; }
 

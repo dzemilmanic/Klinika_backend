@@ -98,7 +98,7 @@ namespace Klinika_backend.Controllers
             return BadRequest(new { Message = "Uneta email adresa ne postoji" });
         }
 
-        //[Authorize(Roles = "Admin")] // Samo admin može pristupiti
+        [Authorize(Roles = "Admin")] // Samo admin može pristupiti
         [HttpGet("GetUsers")] // Endpoint za prikaz korisnika
         public async Task<IActionResult> GetUsers()
         {

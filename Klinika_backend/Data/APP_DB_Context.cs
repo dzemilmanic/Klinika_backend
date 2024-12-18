@@ -43,10 +43,11 @@ namespace Klinika_backend.Data
             builder.Entity<IdentityRole>().HasData(roles);
         }
 
-        public DbSet<Klinika_backend.Models.Lekar> Lekar { get; set; } = default!;
-        public DbSet<Klinika_backend.Models.DTO.ReviewDto> Reviews { get; set; }
-        public DbSet<ServiceDto> Services { get; set; }
+        public DbSet<Lekar> Lekar { get; set; } = default!;
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Service> Services { get; set; }
         public DbSet<ServiceCategoryDto> ServiceCategories { get; set; }
-        public DbSet<AppointmentDto> Appointments { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<News> News { get; set; }
     }
 }

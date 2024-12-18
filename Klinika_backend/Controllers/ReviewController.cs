@@ -44,7 +44,7 @@ namespace Klinika_backend.Controllers
         // POST: api/Reviews
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> CreateReview([FromBody] ReviewDto review)
+        public async Task<IActionResult> CreateReview([FromBody] ReviewDto reviewDto)
         {
             // Dohvati ime trenutnog korisnika iz tokena
             var userName = User.FindFirstValue(ClaimTypes.Name);
@@ -54,9 +54,14 @@ namespace Klinika_backend.Controllers
                 return Unauthorized(new { Message = "Niste autorizovani za kreiranje recenzije." });
             }
 
-            review.Id = Guid.NewGuid();
-            review.Author = userName;
-            review.CreatedOn = DateTime.UtcNow;
+            // Mapiranje DTO u entitet
+            var review = new Review
+            {
+                Id = Guid.NewGuid(),
+                Author = userName,
+                Content = reviewDto.Content,
+                CreatedOn = DateTime.UtcNow
+            };
 
             _context.Reviews.Add(review);
             await _context.SaveChangesAsync();
@@ -67,7 +72,7 @@ namespace Klinika_backend.Controllers
         // PUT: api/Reviews/{id}
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<IActionResult> UpdateReview(Guid id, [FromBody] ReviewDto updatedReview)
+        public async Task<IActionResult> UpdateReview(Guid id, [FromBody] ReviewDto updatedReviewDto)
         {
             var review = await _context.Reviews.FindAsync(id);
 
@@ -80,11 +85,11 @@ namespace Klinika_backend.Controllers
             var userName = User.FindFirstValue(ClaimTypes.Name);
             if (review.Author != userName)
             {
-                return Forbid("Nemate dozvolu za brisanje ove recenzije.");
-
+                return Forbid("Nemate dozvolu za ažuriranje ove recenzije.");
             }
 
-            review.Content = updatedReview.Content;
+            // Ažuriraj entitet sa podacima iz DTO
+            review.Content = updatedReviewDto.Content;
             review.UpdatedOn = DateTime.UtcNow;
 
             _context.Reviews.Update(review);
@@ -92,7 +97,6 @@ namespace Klinika_backend.Controllers
 
             return Ok(review);
         }
-
 
         // DELETE: api/Reviews/{id}
         [HttpDelete("{id}")]
@@ -111,7 +115,6 @@ namespace Klinika_backend.Controllers
             if (review.Author != userName)
             {
                 return Forbid("Nemate dozvolu za brisanje ove recenzije.");
-
             }
 
             _context.Reviews.Remove(review);

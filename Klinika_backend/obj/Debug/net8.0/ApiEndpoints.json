@@ -28,7 +28,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "appointment",
+        "Name": "appointmentDto",
         "Type": "Klinika_backend.Models.DTO.AppointmentDto",
         "IsRequired": true
       }
@@ -85,7 +85,7 @@
         "IsRequired": true
       },
       {
-        "Name": "appointment",
+        "Name": "appointmentDto",
         "Type": "Klinika_backend.Models.DTO.AppointmentDto",
         "IsRequired": true
       }
@@ -276,6 +276,115 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Klinika_backend.Controllers.NewsController",
+    "Method": "GetAllNews",
+    "RelativePath": "api/News",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Klinika_backend.Models.DTO.NewsDto, Klinika_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Klinika_backend.Controllers.NewsController",
+    "Method": "AddNews",
+    "RelativePath": "api/News",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newsDto",
+        "Type": "Klinika_backend.Models.DTO.NewsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Klinika_backend.Models.DTO.NewsDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Klinika_backend.Controllers.NewsController",
+    "Method": "GetNewsById",
+    "RelativePath": "api/News/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Klinika_backend.Models.DTO.NewsDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Klinika_backend.Controllers.NewsController",
+    "Method": "UpdateNews",
+    "RelativePath": "api/News/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "newsDto",
+        "Type": "Klinika_backend.Models.DTO.NewsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Klinika_backend.Controllers.NewsController",
+    "Method": "DeleteNews",
+    "RelativePath": "api/News/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Klinika_backend.Controllers.ReviewController",
     "Method": "GetReviews",
     "RelativePath": "api/Review",
@@ -294,7 +403,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "review",
+        "Name": "reviewDto",
         "Type": "Klinika_backend.Models.DTO.ReviewDto",
         "IsRequired": true
       }
@@ -331,7 +440,7 @@
         "IsRequired": true
       },
       {
-        "Name": "updatedReview",
+        "Name": "updatedReviewDto",
         "Type": "Klinika_backend.Models.DTO.ReviewDto",
         "IsRequired": true
       }
@@ -383,7 +492,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "service",
+        "Name": "serviceDto",
         "Type": "Klinika_backend.Models.DTO.ServiceDto",
         "IsRequired": true
       }
@@ -440,7 +549,7 @@
         "IsRequired": true
       },
       {
-        "Name": "service",
+        "Name": "serviceDto",
         "Type": "Klinika_backend.Models.DTO.ServiceDto",
         "IsRequired": true
       }
