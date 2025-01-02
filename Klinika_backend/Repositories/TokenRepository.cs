@@ -1,4 +1,5 @@
-﻿using Klinika_backend.Repositories;
+﻿using Klinika_backend.Models;
+using Klinika_backend.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
@@ -18,12 +19,16 @@ namespace Klinika_backend.Repositories
         {
             this.configuration = configuration;
         }
-        public string CreateJWTToken(IdentityUser user, List<string> roles)
+        public string CreateJWTToken(ApplicationUser user, List<string> roles)
         {
             // Create claims
-            var claims = new List<Claim>();
-            claims.Add(new Claim(ClaimTypes.Email, user.Email));
-            claims.Add(new Claim(ClaimTypes.Name, user.UserName)); // Dodaj claim za korisničko ime
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(ClaimTypes.Name, user.UserName), // Dodaj claim za korisničko ime
+                new Claim("FirstName", user.FirstName), // Dodaj FirstName
+                new Claim("LastName", user.LastName) // Dodaj LastName
+            };
 
             foreach (var role in roles)
             {

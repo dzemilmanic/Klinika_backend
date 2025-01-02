@@ -15,10 +15,10 @@ namespace Klinika_backend.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly UserManager<IdentityUser> userManager;
+        private readonly UserManager<ApplicationUser> userManager;
         private readonly ITokenRepository tokenRepository;
 
-        public AuthController(UserManager<IdentityUser> userManager, ITokenRepository tokenRepository)
+        public AuthController(UserManager<ApplicationUser> userManager, ITokenRepository tokenRepository)
         {
             this.userManager = userManager;
             this.tokenRepository = tokenRepository;
@@ -75,7 +75,9 @@ namespace Klinika_backend.Controllers
         [Route("Login")]
         public async Task<IActionResult> Login([FromBody] LoginRequestDto loginRequestDto)
         {
+            // Pretraga korisnika sa datim email-om
             var user = await userManager.FindByEmailAsync(loginRequestDto.Email);
+
             if (user != null)
             {
                 var checkPasswordResult = await userManager.CheckPasswordAsync(user, loginRequestDto.Password);
@@ -85,12 +87,17 @@ namespace Klinika_backend.Controllers
                     var roles = await userManager.GetRolesAsync(user);
                     if (roles != null)
                     {
-                        var jwtToken = tokenRepository.CreateJWTToken(user, roles.ToList());
-                        var response = new LoginResponseDto
+                        // Pretvorite user u ApplicationUser
+                        var applicationUser = user as ApplicationUser;
+                        if (applicationUser != null)
                         {
-                            JwtToken = jwtToken
-                        };
-                        return Ok(response);
+                            var jwtToken = tokenRepository.CreateJWTToken(applicationUser, roles.ToList());
+                            var response = new LoginResponseDto
+                            {
+                                JwtToken = jwtToken
+                            };
+                            return Ok(response);
+                        }
                     }
                 }
                 return BadRequest(new { Message = "Šifra nije ispravna" });
@@ -98,7 +105,7 @@ namespace Klinika_backend.Controllers
             return BadRequest(new { Message = "Uneta email adresa ne postoji" });
         }
 
-       // [Authorize(Roles = "Admin")] // Samo admin može pristupiti
+        // [Authorize(Roles = "Admin")] // Samo admin može pristupiti
         [HttpGet("GetUsers")] // Endpoint za prikaz korisnika
         public async Task<IActionResult> GetUsers()
         {

@@ -167,6 +167,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Klinika_backend.Controllers.ChangeUserDataController",
+    "Method": "UpdateUserData",
+    "RelativePath": "api/ChangeUserData/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateUserDataDto",
+        "Type": "Klinika_backend.Models.DTO.ChangeUserDataDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Klinika_backend.Controllers.LekarsController",
     "Method": "GetLekar",
     "RelativePath": "api/Lekars",

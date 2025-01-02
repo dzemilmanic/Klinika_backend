@@ -1,4 +1,5 @@
 using Klinika_backend.Data;
+using Klinika_backend.Models;
 using Klinika_backend.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -17,9 +18,9 @@ builder.Services.AddDbContext<APP_DB_Context>(options =>
 
 builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 
-builder.Services.AddIdentityCore<IdentityUser>()
+builder.Services.AddIdentityCore<ApplicationUser>()
     .AddRoles<IdentityRole>()
-    .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>("backendAPI")
+    .AddTokenProvider<DataProtectorTokenProvider<ApplicationUser>>("backendAPI")
     .AddEntityFrameworkStores<APP_DB_Context>()
     .AddDefaultTokenProviders();
 
